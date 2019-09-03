@@ -89,11 +89,11 @@ Projects: 199, .ocamlformat files: 333
   56 align-variants-decl = false
   56 disable = false
   55 disambiguate-non-breaking-match = false
-  53 max-iters = ocamlformat-profile.max-iters
+  53 break-fun-sig = fit-or-vertical
   53 quiet = ocamlformat-profile.quiet
   53 profile = janestreet
-  53 break-fun-sig = fit-or-vertical
-  53 max-indent = None
+  53 max-indent
+  53 max-iters = ocamlformat-profile.max-iters
   52 function-indent-nested = never
   52 match-indent-nested = never
   50 parse-docstrings = false
@@ -170,13 +170,12 @@ Projects: 199, .ocamlformat files: 333
    2 profile = default
    1 break-string-literals = newlines-and-wrap
    1 m = 120
-   1 margin 90
    1 version 0.4
+   1 margin 90
    1 break-string-literals wrap
    1 max-indent = 2
    1 break-sequences
    1 break-infix-before-func
-   0 break-fun-sig = Fit-or-vertical
    0 comment-check = false
    0 escape-chars = hexadecimal
    0 escape-strings = hexadecimal
