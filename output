@@ -9,12 +9,14 @@ Projects: 199, .ocamlformat files: 333
  198 let-binding-indent
  198 margin
  198 match-indent
+ 198 max-iters
  198 nested-match = wrap
  198 stritem-extension-indent
  198 type-decl-indent
  195 assignment-operator = begin-line
  195 cases-matching-exp-indent = normal
  195 extension-sugar = preserve
+ 195 quiet = true
  192 break-before-in = fit-or-vertical
  192 doc-comments-tag-only = fit
  190 ocp-indent-compat = true
@@ -35,7 +37,6 @@ Projects: 199, .ocamlformat files: 333
  159 break-infix-before-func = true
  159 break-separators = before
  146 max-indent = none
- 146 max-iters
  144 disambiguate-non-breaking-match = true
  144 parse-docstrings = true
  143 align-cases = true
@@ -43,7 +44,6 @@ Projects: 199, .ocamlformat files: 333
  143 align-variants-decl = true
  143 function-indent-nested = always
  143 match-indent-nested = always
- 143 quiet = true
  142 disable = true
  140 escape-chars = decimal
  139 escape-strings = decimal
@@ -66,6 +66,7 @@ Projects: 199, .ocamlformat files: 333
  110 break-infix = fit-or-vertical
  110 type-decl = sparse
  104 break-cases = fit
+ 103 profile = ocamlformat
   97 type-decl = compact
   96 break-infix = wrap
   90 let-and = sparse
@@ -90,10 +91,8 @@ Projects: 199, .ocamlformat files: 333
   56 disable = false
   55 disambiguate-non-breaking-match = false
   53 break-fun-sig = fit-or-vertical
-  53 quiet = ocamlformat-profile.quiet
   53 profile = janestreet
   53 max-indent
-  53 max-iters = ocamlformat-profile.max-iters
   52 function-indent-nested = never
   52 match-indent-nested = never
   50 parse-docstrings = false
@@ -114,7 +113,6 @@ Projects: 199, .ocamlformat files: 333
   18 break-struct = natural
   17 break-cases = toplevel
   16 profile = sparse
-  14 profile = ocamlformat
   13 break-sequences = false
   13 if-then-else = fit-or-vertical
   13 space-around-arrays = false
@@ -162,20 +160,20 @@ Projects: 199, .ocamlformat files: 333
    2 indicate-nested-or-patterns = true
    2 indicate-multiline-delimiters = true
    2 version 0.5
+   2 space-around-arrays
    2 space-around-variants
    2 space-around-lists
-   2 space-around-arrays
    2 sparse true
    2 ocp-indent-compat
    2 profile = default
    1 break-string-literals = newlines-and-wrap
    1 m = 120
+   1 break-string-literals wrap
    1 version 0.4
    1 margin 90
-   1 break-string-literals wrap
    1 max-indent = 2
-   1 break-sequences
    1 break-infix-before-func
+   1 break-sequences
    0 comment-check = false
    0 escape-chars = hexadecimal
    0 escape-strings = hexadecimal

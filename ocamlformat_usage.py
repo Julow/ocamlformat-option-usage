@@ -70,7 +70,8 @@ ALL_OPTIONS = {
     "type-decl": ["compact", "sparse"],
     "type-decl-indent": None,
     "wrap-comments": ["true", "false"],
-    "wrap-fun-args": ["true", "false"]
+    "wrap-fun-args": ["true", "false"],
+    "profile": ["ocamlformat", "conventional", "compact", "sparse", "janestreet" ]
 }
 
 default_profile = { opt: (None if val is None else val[0]) for opt, val in ALL_OPTIONS.items() }
@@ -187,7 +188,7 @@ ALL_PROFILES = {
         "match-indent": None,
         "match-indent-nested": "never",
         "max-indent": None,
-        "max-iters": "ocamlformat-profile.max-iters",
+        "max-iters": None,
         "module-item-spacing": "compact",
         "nested-match": "wrap",
         "ocp-indent-compat": "true",
@@ -195,7 +196,6 @@ ALL_PROFILES = {
         "parens-tuple": "multi-line-only",
         "parens-tuple-patterns": "multi-line-only",
         "parse-docstrings": "false",
-        "quiet": "ocamlformat-profile.quiet",
         "sequence-blank-line": "compact",
         "sequence-style": "terminator",
         "single-case": "sparse",
