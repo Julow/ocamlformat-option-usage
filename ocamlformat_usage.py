@@ -73,6 +73,143 @@ ALL_OPTIONS = {
     "wrap-fun-args": ["true", "false"]
 }
 
+default_profile = { opt: (None if val is None else val[0]) for opt, val in ALL_OPTIONS.items() }
+
+ALL_PROFILES = {
+    "ocamlformat": default_profile,
+    "conventional": { **default_profile,
+        "break-cases": "fit",
+        "break-infix-before-func": "false",
+        "break-separators": "after-and-docked",
+        "break-sequences": "true",
+        "cases-matching-exp-indent": "normal",
+        "field-space": "loose",
+        "indicate-nested-or-patterns": "unsafe-no",
+        "sequence-style": "terminator",
+        "sequence-blank-line": "preserve-one",
+        "space-around-arrays": "true",
+        "space-around-lists": "true",
+        "space-around-records": "true",
+        "space-around-variants": "true" },
+    "compact": { **default_profile,
+        "break-before-in": "auto",
+        "break-cases": "fit",
+        "break-collection-expressions": "wrap",
+        "break-infix": "wrap",
+        "break-fun-decl": "wrap",
+        "break-fun-sig": "wrap",
+        "break-sequences": "false",
+        "break-struct": "false",
+        "doc-comments-tag-only": "fit",
+        "exp-grouping": "parens",
+        "field-space": "tight",
+        "if-then-else": "compact",
+        "indicate-nested-or-patterns": "space",
+        "leading-nested-match-parens": "false",
+        "let-and": "compact",
+        "let-binding-spacing": "compact",
+        "let-module": "compact",
+        "module-item-spacing": "compact",
+        "single-case": "compact",
+        "space-around-arrays": "false",
+        "space-around-lists": "false",
+        "space-around-records": "false",
+        "space-around-variants": "false",
+        "type-decl": "compact",
+        "wrap-fun-args": "true" },
+    "sparse": { **default_profile,
+        "break-before-in": "fit-or-vertical",
+        "break-cases": "nested",
+        "break-collection-expressions": "fit-or-vertical",
+        "break-infix": "fit-or-vertical",
+        "break-fun-decl": "smart",
+        "break-fun-sig": "smart",
+        "break-sequences": "true",
+        "break-struct": "true",
+        "field-space": "loose",
+        "if-then-else": "keyword-first",
+        "indicate-nested-or-patterns": "space",
+        "leading-nested-match-parens": "true",
+        "let-and": "sparse",
+        "let-binding-spacing": "sparse",
+        "let-module": "sparse",
+        "module-item-spacing": "sparse",
+        "single-case": "sparse",
+        "sequence-blank-line": "preserve-one",
+        "space-around-arrays": "true",
+        "space-around-lists": "true",
+        "space-around-records": "true",
+        "space-around-variants": "true",
+        "type-decl": "sparse",
+        "wrap-fun-args": "false" },
+    "janestreet": { **default_profile,
+        "align-constructors-decl": "false",
+        "align-cases": "false",
+        "align-variants-decl": "false",
+        "assignment-operator": "begin-line",
+        "break-before-in": "fit-or-vertical",
+        "break-cases": "fit-or-vertical",
+        "break-infix": "fit-or-vertical",
+        "break-infix-before-func": "true",
+        "break-fun-decl": "fit-or-vertical",
+        "break-fun-sig": "fit-or-vertical",
+        "break-separators": "before",
+        "break-sequences": "true",
+        "break-string-literals": "wrap",
+        "cases-exp-indent": None,
+        "cases-matching-exp-indent": "normal",
+        "comment-check": "true",
+        "disable": "false",
+        "disambiguate-non-breaking-match": "false",
+        "doc-comments": "before",
+        "doc-comments-padding": None,
+        "doc-comments-tag-only": "fit",
+        "escape-chars": "preserve",
+        "escape-strings": "preserve",
+        "exp-grouping": "parens",
+        "extension-indent": None,
+        "extension-sugar": "preserve",
+        "field-space": "loose",
+        "function-indent": None,
+        "function-indent-nested": "never",
+        "if-then-else": "keyword-first",
+        "indent-after-in": None,
+        "indicate-multiline-delimiters": "no",
+        "indicate-nested-or-patterns": "unsafe-no",
+        "infix-precedence": "parens",
+        "leading-nested-match-parens": "true",
+        "let-and": "sparse",
+        "let-binding-indent": None,
+        "let-binding-spacing": "double-semicolon",
+        "let-module": "sparse",
+        "let-open": "preserve",
+        "margin": None,
+        "match-indent": None,
+        "match-indent-nested": "never",
+        "max-indent": "None",
+        "max-iters": "ocamlformat-profile.max-iters",
+        "module-item-spacing": "compact",
+        "nested-match": "wrap",
+        "ocp-indent-compat": "true",
+        "parens-ite": "true",
+        "parens-tuple": "multi-line-only",
+        "parens-tuple-patterns": "multi-line-only",
+        "parse-docstrings": "false",
+        "quiet": "ocamlformat-profile.quiet",
+        "sequence-blank-line": "compact",
+        "sequence-style": "terminator",
+        "single-case": "sparse",
+        "space-around-arrays": "true",
+        "space-around-lists": "true",
+        "space-around-records": "true",
+        "space-around-variants": "true",
+        "stritem-extension-indent": None,
+        "type-decl": "sparse",
+        "type-decl-indent": None,
+        "wrap-comments": "false",
+        "wrap-fun-args": "false" }
+}
+
 # Requires a Github access token
 # Will make a lot of requests to github
 
@@ -116,14 +253,17 @@ def parse_options(results):
             val = None
         return [ (opt, val) ] if opt != "" else []
     for r in results:
-        r["options"] = [ pair for line in r["content"].splitlines() for pair in parse_opt(line) ]
+        r["options"] = { opt: val for line in r["content"].splitlines() for opt, val in parse_opt(line) }
 
 # Number of projects using each pair option, value
 # Print
 def count_options(results):
     options_per_projects = {}
     for r in results:
-        options_per_projects.setdefault(r["project"], set()).update(r["options"])
+        # Apply profile
+        opts = { **ALL_PROFILES.get(r["options"].get("profile", "ocamlformat"), {}), **r["options"] }
+        # opts = r["options"]
+        options_per_projects.setdefault(r["project"], set()).update(opts.items())
     # count_per_options = {}
     # Set all possible pairs, so unused options will show in the result
     count_per_options = { (opt, val): 0 for opt, values in ALL_OPTIONS.items() for val in (values or [None]) }
