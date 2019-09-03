@@ -1,0 +1,179 @@
+Projects: 199, .ocamlformat files: 333
+  73 margin
+  53 profile = janestreet
+  52 type-decl = sparse
+  44 break-infix = fit-or-vertical
+  44 field-space = loose
+  42 wrap-comments = true
+  39 sequence-style = terminator
+  32 parens-tuple = always
+  23 break-separators = after-and-docked
+  23 wrap-comments = false
+  22 parse-docstrings = true
+  21 doc-comments = before
+  21 let-and = sparse
+  21 module-item-spacing = compact
+  21 parens-tuple = multi-line-only
+  21 profile = conventional
+  20 cases-exp-indent
+  20 infix-precedence = parens
+  20 let-binding-spacing = compact
+  20 let-binding-spacing = sparse
+  19 break-cases = fit
+  19 break-sequences = true
+  19 if-then-else = keyword-first
+  19 wrap-fun-args = false
+  18 break-cases = all
+  18 break-infix-before-func = false
+  18 ocp-indent-compat = true
+  18 break-struct = natural
+  17 break-cases = toplevel
+  17 module-item-spacing = sparse
+  16 profile = sparse
+  15 extension-sugar = preserve
+  14 break-collection-expressions = wrap
+  14 parens-tuple-patterns = multi-line-only
+  14 profile = ocamlformat
+  13 if-then-else = fit-or-vertical
+  12 indicate-nested-or-patterns = unsafe-no
+  11 break-string-literals = wrap
+  11 doc-comments = after
+  11 break-struct = force
+  10 leading-nested-match-parens = true
+  10 type-decl = compact
+  10 profile = compact
+   9 break-collection-expressions = fit-or-vertical
+   9 leading-nested-match-parens = false
+   9 let-open = preserve
+   9 parens-ite = false
+   9 parens-tuple-patterns = always
+   9 version = 0.9
+   9 disable
+   8 break-infix = wrap
+   8 break-fun-decl = smart
+   8 field-space = tight
+   7 break-cases = nested
+   7 break-string-literals = never
+   7 disable = true
+   7 escape-strings = preserve
+   7 ocp-indent-compat = false
+   7 wrap-comments
+   6 doc-comments-padding
+   6 doc-comments-tag-only = default
+   6 escape-chars = preserve
+   6 indicate-multiline-delimiters = no
+   6 infix-precedence = indent
+   6 sequence-style = separator
+   6 single-case = sparse
+   6 version = 0.8
+   5 break-fun-decl = fit-or-vertical
+   5 indicate-nested-or-patterns = space
+   5 let-and = compact
+   5 max-iters
+   5 single-case = compact
+   5 parse-docstrings
+   4 assignment-operator = end-line
+   4 break-separators = before
+   4 exp-grouping = parens
+   4 function-indent-nested = auto
+   4 indent-after-in
+   4 indicate-multiline-delimiters = closing-on-separate-line
+   4 let-open = auto
+   4 let-open = short
+   4 match-indent-nested = auto
+   4 sequence-blank-line = compact
+   4 sequence-blank-line = preserve-one
+   4 space-around-records = true
+   4 space-around-variants = true
+   4 wrap-fun-args = true
+   4 version = 0.10
+   4 version = 0.11.0
+   3 align-cases = false
+   3 align-constructors-decl = false
+   3 align-variants-decl = false
+   3 break-before-in = fit-or-vertical
+   3 break-infix-before-func = true
+   3 break-separators = after
+   3 break-sequences = false
+   3 break-string-literals = newlines
+   3 cases-matching-exp-indent = compact
+   3 comment-check = true
+   3 disable = false
+   3 escape-chars = decimal
+   3 escape-strings = decimal
+   3 exp-grouping = preserve
+   3 extension-indent
+   3 extension-sugar = always
+   3 field-space = tight-decl
+   3 function-indent
+   3 function-indent-nested = never
+   3 if-then-else = compact
+   3 if-then-else = k-r
+   3 indicate-multiline-delimiters = space
+   3 let-binding-indent
+   3 let-module = compact
+   3 let-open = long
+   3 match-indent
+   3 match-indent-nested = never
+   3 max-indent = none
+   3 nested-match = wrap
+   3 quiet = false
+   3 space-around-arrays = false
+   3 space-around-lists = false
+   3 space-around-records = false
+   3 space-around-variants = false
+   3 stritem-extension-indent
+   3 type-decl-indent
+   3 indicate-multiline-delimiters = false
+   3 margin 100
+   3 space-around-records
+   2 break-fun-sig = smart
+   2 disambiguate-non-breaking-match = true
+   2 disambiguate-non-breaking-match = false
+   2 module-item-spacing = preserve
+   2 parens-ite = true
+   2 parse-docstrings = false
+   2 quiet = true
+   2 space-around-arrays = true
+   2 space-around-lists = true
+   2 space-around-collection-expressions = true
+   2 infer/src/.ocamlformat
+   2 indicate-nested-or-patterns = true
+   2 indicate-multiline-delimiters = true
+   2 version 0.5
+   2 space-around-arrays
+   2 space-around-lists
+   2 space-around-variants
+   2 sparse true
+   2 ocp-indent-compat
+   2 profile = default
+   1 align-cases = true
+   1 align-constructors-decl = true
+   1 align-variants-decl = true
+   1 break-cases = fit-or-vertical
+   1 break-fun-decl = wrap
+   1 break-fun-sig = wrap
+   1 break-string-literals = newlines-and-wrap
+   1 let-binding-spacing = double-semicolon
+   1 m = 120
+   1 break-string-literals wrap
+   1 version 0.4
+   1 margin 90
+   1 max-indent = 2
+   1 break-infix-before-func
+   1 break-sequences
+   0 assignment-operator = begin-line
+   0 break-before-in = auto
+   0 break-fun-sig = Fit-or-vertical
+   0 break-struct = true
+   0 break-struct = false
+   0 cases-matching-exp-indent = normal
+   0 comment-check = false
+   0 doc-comments-tag-only = fit
+   0 escape-chars = hexadecimal
+   0 escape-strings = hexadecimal
+   0 function-indent-nested = always
+   0 let-module = sparse
+   0 match-indent-nested = always
+   0 nested-match = align
+   0 sequence-style = before
