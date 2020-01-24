@@ -55,9 +55,9 @@ def parse_options(results):
 def count_options(results):
     options_per_projects = {}
     for r in results:
-        # Apply profile
-        opts = { **PROFILES.get(r["options"].get("profile", "default"), {}), **r["options"] }
-        # opts = r["options"]
+        opts = {}
+        opts.update(PROFILES.get(r["options"].get("profile", "default"), {})) # Apply profile
+        opts.update(r["options"])
         options_per_projects.setdefault(r["project"], set()).update(opts.items())
     # count_per_options = {}
     # Set all possible pairs, so unused options will show in the result
@@ -66,7 +66,7 @@ def count_options(results):
         count_per_options.setdefault(pair, 0)
         count_per_options[pair] += 1
     # Add option from profile
-    counts = sorted(count_per_options.items(), key=lambda i: i[1], reverse=True)
+    counts = sorted(count_per_options.items(), key=lambda i: (i[1], i[0]), reverse=True)
     print("Projects: %d, .ocamlformat files: %d" % (len(options_per_projects), len(results)))
     for pair, count in counts:
         opt, val = pair
