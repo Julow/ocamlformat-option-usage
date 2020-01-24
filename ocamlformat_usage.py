@@ -2,6 +2,7 @@ import requests
 import json
 import re
 import itertools
+import sys
 
 from all_options import OPTIONS, PROFILES
 
@@ -11,6 +12,7 @@ from all_options import OPTIONS, PROFILES
 GITHUB_ACCESS_TOKEN = ""
 
 def github_api_paged(url):
+    print("GET %s" % url, file=sys.stderr)
     res = requests.get(url, headers={ "Authorization": "token " + GITHUB_ACCESS_TOKEN })
     res.raise_for_status()
     res_data = res.json()
@@ -33,6 +35,7 @@ def get_ocamlformat_files():
             if r["name"] == ".ocamlformat" ]
 
 def fetch_files(results):
+    print("Fetching %d .ocamlformat files" % len(results), file=sys.stderr)
     for r in results:
         res = requests.get(r["download_url"])
         res.raise_for_status()
@@ -70,8 +73,16 @@ def count_options(results):
         # print("%4d %s = %s" % (count, opt, val))
         print("%4d %s" % (count, opt if val is None else "%s = %s" % pair))
 
-results = get_ocamlformat_files()
-fetch_files(results)
+try:
+    with open("cache", "r") as f:
+        print("Using cached results from file 'cache'", file=sys.stderr)
+        results = json.load(f)
+except FileNotFoundError:
+    results = get_ocamlformat_files()
+    fetch_files(results)
+    with open("cache", "w") as f:
+        json.dump(results, f)
+
 parse_options(results)
 
 count_options(results)
