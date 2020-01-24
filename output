@@ -1,4 +1,5 @@
 Projects: 348, .ocamlformat files: 526
+ 356 disable = false
  348 type-decl-indent = 2
  348 let-binding-indent = 2
  348 extension-indent = 2
@@ -7,12 +8,11 @@ Projects: 348, .ocamlformat files: 526
  347 disambiguate-non-breaking-match = false
  346 quiet = false
  346 max-iters = 10
+ 346 align-constructors-decl = false
  345 nested-match = wrap
  345 align-variants-decl = false
- 344 align-constructors-decl = false
  344 align-cases = false
  343 stritem-extension-indent = 0
- 342 disable = false
  339 match-indent = 0
  339 extension-sugar = preserve
  337 break-before-in = fit-or-vertical
@@ -25,22 +25,22 @@ Projects: 348, .ocamlformat files: 526
  317 assignment-operator = begin-line
  313 doc-comments = before
  311 wrap-fun-args = false
+ 310 space-around-records = true
+ 310 space-around-arrays = true
+ 310 break-sequences = true
  309 indicate-multiline-delimiters = no
- 308 break-sequences = true
+ 308 space-around-variants = true
  307 break-separators = before
- 305 space-around-variants = true
- 304 space-around-arrays = true
- 303 space-around-records = true
- 297 parse-docstrings = false
- 295 space-around-lists = true
- 294 wrap-comments = false
+ 306 parse-docstrings = false
+ 304 wrap-comments = false
+ 301 space-around-lists = true
  281 module-item-spacing = compact
  266 doc-comments-padding = 2
  262 let-binding-spacing = compact
- 255 parens-ite = false
+ 259 parens-ite = false
+ 251 ocp-indent-compat = false
  250 indicate-nested-or-patterns = space
- 249 ocp-indent-compat = false
- 247 break-infix-before-func = false
+ 250 break-infix-before-func = false
  246 parens-tuple = always
  245 infix-precedence = indent
  244 let-module = compact
@@ -52,8 +52,8 @@ Projects: 348, .ocamlformat files: 526
  236 max-indent
  236 escape-chars = decimal
  236 break-fun-sig = wrap
+ 235 leading-nested-match-parens = false
  235 escape-strings = decimal
- 234 leading-nested-match-parens = false
  233 dock-collection-brackets = true
  231 parens-tuple-patterns = always
  226 break-fun-decl = wrap
@@ -138,59 +138,47 @@ Projects: 348, .ocamlformat files: 526
   15 margin = 77
   15 exp-grouping = preserve
   14 if-then-else = fit-or-vertical
-  14 disable
   14 break-before-in = auto
   13 indicate-multiline-delimiters = closing-on-separate-line
   13 field-space = tight-decl
   13 break-string-literals = never
   12 if-then-else = k-r
   11 disable = true
-  10 wrap-comments
   10 margin = 79
-   9 parse-docstrings (AnAverageHuman/dotfiles, graphx-design/ocaml-serializers, graphx-design/webcomp-daterange, SquidDev/omnomnom, graphx-design/bs-paragon, CraigFe/ocaml-generics, graphx-design/promeneur, SquidDev/illuaminate, badochov/WPF)
    9 match-indent = 2 (savonet/ocaml-ffmpeg, dhcmrlchtdj/schemer, savonet/ocaml-posix, dhcmrlchtdj/ocaml-quickjs, savonet/liquidsoap, enaudon/calculus-corral, Tristan971/AoC-2019, savonet/ocaml-dtools, dhcmrlchtdj/blueprint)
    9 extension-sugar = always (AnAverageHuman/dotfiles, osener/bs-atdgen-codec-runtime, ovcharovvladimir/mneliada, dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, ovcharovvladimir/ocaml_quaternion_tangles, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, dhcmrlchtdj/mine)
    8 version = 0.9 (CraigFe/bidict, danielmercier/lal2adair, fakeNetflix/facebook-repo-infer, mirage/bloomf, paveon/looper, prmis/infer, mirage/wodan, facebook/infer)
    8 let-open = short (dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, ref-humbold/AlgoLib_OCaml, ref-humbold/Gomoku-Game, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, fakeNetflix/facebook-repo-hhvm, dhcmrlchtdj/mine)
    8 break-string-literals = wrap (issuu/graphite-async, danielmercier/lal2adair, issuu/ppx_mysql, issuu/thread-pool-async, bikallem/ocaml-scgi, bikallem/re-servers, issuu/ocaml-mmdb, dune-universe/dune-universe)
-   7 space-around-records (SquidDev/omnomnom, ocaml/ocaml-lsp, SquidDev/illuaminate, facebook/pyre-check, ocaml/dune, ocamllabs/duniverse, realworldocaml/book)
    7 module-item-spacing = preserve (hcarty/ezmysql, hcarty/ezrest, rymdhund/binaric, hcarty/ocaml-tiled, links-lang/links, vrotaru/kaleidoskope, SimonJF/linear-mvu-artifact)
    7 max-indent = 68 (dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, ref-humbold/AlgoLib_OCaml, ref-humbold/Gomoku-Game, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, dhcmrlchtdj/mine)
    7 margin = 85 (jfeser/odoc2docset, jfeser/combinat, jfeser/csynth, jfeser/L2, jfeser/ocaml-cmph, Baltoli/synths, jfeser/castor)
-   6 space-around-lists (SquidDev/omnomnom, ocaml/ocaml-lsp, SquidDev/illuaminate, ocaml/dune, ocamllabs/duniverse, realworldocaml/book)
-   6 space-around-arrays (SquidDev/omnomnom, ocaml/ocaml-lsp, SquidDev/illuaminate, ocaml/dune, ocamllabs/duniverse, realworldocaml/book)
    6 match-indent-nested = auto (graphx-design/ocaml-serializers, badochov/cwiczenia, graphx-design/webcomp-daterange, graphx-design/bs-paragon, graphx-design/promeneur, badochov/WPF)
    6 let-open = auto (AnAverageHuman/dotfiles, osener/bs-atdgen-codec-runtime, ubsan/cafe, ELLIOTTCABLE/excmd.js, ELLIOTTCABLE/wrange, facelesspanda/fp-ocaml-syntax)
    5 stritem-extension-indent = 2 (dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, dhcmrlchtdj/mine)
    5 margin = 70 (ArulselvanMadhavan/ocaml-ctfp, TyOverby/jitsy, TyOverby/vdm-ocaml, xvw/rutsch, xvw/quasar)
    5 infer/src/.ocamlformat (fakeNetflix/facebook-repo-infer, paveon/looper, jura120596/infer_test, avery-laird/term-project, avery-laird/479-term-project)
    5 align-cases = true (mukul-rathi/ocaml-testing-template, owlbarn/owl_suitesparse, owlbarn/owl, bikallem/re-servers, owlbarn/owl_symbolic)
-   4 parens-ite (savonet/ocaml-ffmpeg, savonet/ocaml-posix, savonet/liquidsoap, savonet/ocaml-dtools)
    4 nested-match = align (modlfo/vult, badochov/cwiczenia, enaudon/calculus-corral, badochov/WPF)
    4 margin 100 (fakeNetflix/facebook-repo-facebook-clang-plugins, tonyshui/481-hw4, facebook/facebook-clang-plugins, avery-laird/479-term-project)
    4 margin = 120 (modlfo/vult, jacketsj/sat, orphos/estoril, orphos/orphos)
    4 function-indent-nested = auto (graphx-design/ocaml-serializers, graphx-design/webcomp-daterange, graphx-design/bs-paragon, graphx-design/promeneur)
    3 version 0.5 (fakeNetflix/facebook-repo-facebook-clang-plugins, facebook/facebook-clang-plugins, avery-laird/479-term-project)
    3 version = 0.8 (avsm/mirage-duniverse, xvw/rutsch, emillon/ocaml-noise)
-   3 space-around-variants (SquidDev/omnomnom, SquidDev/illuaminate, facebook/pyre-check)
    3 margin = 76 (facebook/infer, avery-laird/term-project, avery-laird/479-term-project)
    3 indicate-multiline-delimiters = true (danielmercier/lal2adair, bikallem/ocaml-scgi, dune-universe/dune-universe)
    3 disambiguate-non-breaking-match = true (facebook/flow, fakeNetflix/facebook-repo-hhvm, facebook/hhvm)
    3 break-string-literals = newlines (AnAverageHuman/dotfiles, fdopen/ppx_cstubs, Hilzu/node-shim)
-   3 break-infix-before-func (Freyr666/ui-server, facebook/pyre-check, ocsigen/js_of_ocaml)
    3 align-variants-decl = true (modlfo/vult, mukul-rathi/ocaml-testing-template, bikallem/re-servers)
    3 align-constructors-decl = true (modlfo/vult, mukul-rathi/ocaml-testing-template, bikallem/re-servers)
    2 version = 0.12-20-gfce0d2e (avery-laird/term-project, avery-laird/479-term-project)
    2 sparse true (tonyshui/481-hw4, watiko/phoneq-bucklescript)
    2 quiet = true (ovcharovvladimir/mneliada, ovcharovvladimir/ocaml_quaternion_tangles)
-   2 ocp-indent-compat (facebook/pyre-check, pkel/ghm)
    2 max-iters = 3 (ovcharovvladimir/mneliada, ovcharovvladimir/ocaml_quaternion_tangles)
    2 max-iters = 2 (ocaml-ppx/ocamlformat, avsm/platform)
    2 let-open = long (dhcmrlchtdj/ore, enaudon/calculus-corral)
    2 indent-after-in = 2 (badochov/cwiczenia, badochov/WPF)
    2 break-string-literals = newlines-and-wrap (igarnier/ddgeo, igarnier/bih)
-   2 break-sequences (facebook/pyre-check, badochov/WPF)
-   2 align-constructors-decl (owlbarn/owl, owlbarn/owl_symbolic)
    1 version 0.4 (watiko/phoneq-bucklescript)
    1 version = bad (ocaml-ppx/ocamlformat)
    1 version = 0.12-21-gdd929ea (facebook/infer)
@@ -207,7 +195,6 @@ Projects: 348, .ocamlformat files: 526
    1 margin = 72 (ubsan/cafe)
    1 margin = 160 (Tristan971/AoC-2019)
    1 m = 120 (thatportugueseguy/ocaml-dotenv)
-   1 leading-nested-match-parens (SkySkimmer/AdventOfCode)
    1 indicate-nested-or-patterns = true (dhcmrlchtdj/ore)
    1 indicate-multiline-delimiters = false (dhcmrlchtdj/ore)
    1 function-indent = 0 (bikallem/simple-socket-apps)

@@ -64,6 +64,8 @@ def count_options(results):
     count_per_options = { (opt, val): [] for opt, values in OPTIONS.items() for val in values }
     for project, pairs in options_per_projects.items():
         for pair in pairs:
+            if pair[1] == None: # Use the default value when no value is passed
+                pair = pair[0], OPTIONS.get(pair[0], [None])[0]
             count_per_options.setdefault(pair, [])
             count_per_options[pair].append(project)
     # Add option from profile
