@@ -49,7 +49,7 @@ Projects: 348, .ocamlformat files: 526
  242 single-case = compact
  242 match-indent-nested = always
  242 cases-exp-indent = 4
- 236 max-indent = 
+ 236 max-indent
  236 escape-chars = decimal
  236 break-fun-sig = wrap
  235 escape-strings = decimal
@@ -60,7 +60,7 @@ Projects: 348, .ocamlformat files: 526
  218 let-and = compact
  217 margin = 80
  213 if-then-else = compact
- 210 version = 
+ 210 version
  210 break-collection-expressions = wrap
  198 sequence-style = before
  197 type-decl = compact
@@ -147,75 +147,75 @@ Projects: 348, .ocamlformat files: 526
   11 disable = true
   10 wrap-comments
   10 margin = 79
-   9 parse-docstrings
-   9 match-indent = 2
-   9 extension-sugar = always
-   8 version = 0.9
-   8 let-open = short
-   8 break-string-literals = wrap
-   7 space-around-records
-   7 module-item-spacing = preserve
-   7 max-indent = 68
-   7 margin = 85
-   6 space-around-lists
-   6 space-around-arrays
-   6 match-indent-nested = auto
-   6 let-open = auto
-   5 stritem-extension-indent = 2
-   5 margin = 70
-   5 infer/src/.ocamlformat
-   5 align-cases = true
-   4 parens-ite
-   4 nested-match = align
-   4 margin 100
-   4 margin = 120
-   4 function-indent-nested = auto
-   3 version 0.5
-   3 version = 0.8
-   3 space-around-variants
-   3 margin = 76
-   3 indicate-multiline-delimiters = true
-   3 disambiguate-non-breaking-match = true
-   3 break-string-literals = newlines
-   3 break-infix-before-func
-   3 align-variants-decl = true
-   3 align-constructors-decl = true
-   2 version = 0.12-20-gfce0d2e
-   2 sparse true
-   2 quiet = true
-   2 ocp-indent-compat
-   2 max-iters = 3
-   2 max-iters = 2
-   2 let-open = long
-   2 indent-after-in = 2
-   2 break-string-literals = newlines-and-wrap
-   2 break-sequences
-   2 align-constructors-decl
-   1 version 0.4
-   1 version = bad
-   1 version = 0.12-21-gdd929ea
-   1 version = 0.10
-   1 unknown_option = true
-   1 this_is_an_error = true
-   1 space-around-collection-expressions = true
-   1 space-around-collection-expressions = false
-   1 max-indent = none
-   1 max-indent = 2
-   1 margin 90
-   1 margin = 82
-   1 margin = 73
-   1 margin = 72
-   1 margin = 160
-   1 m = 120
-   1 leading-nested-match-parens
-   1 indicate-nested-or-patterns = true
-   1 indicate-multiline-delimiters = false
-   1 function-indent = 0
-   1 field-space = unknown_value
-   1 doc-comments-padding = 3
-   1 break-string-literals wrap
-   1 a = b = c
-   1 ../.ocamlformat
-   1 ../../../.ocamlformat
-   0 escape-strings = hexadecimal
-   0 escape-chars = hexadecimal
+   9 parse-docstrings (AnAverageHuman/dotfiles, graphx-design/ocaml-serializers, graphx-design/webcomp-daterange, SquidDev/omnomnom, graphx-design/bs-paragon, CraigFe/ocaml-generics, graphx-design/promeneur, SquidDev/illuaminate, badochov/WPF)
+   9 match-indent = 2 (savonet/ocaml-ffmpeg, dhcmrlchtdj/schemer, savonet/ocaml-posix, dhcmrlchtdj/ocaml-quickjs, savonet/liquidsoap, enaudon/calculus-corral, Tristan971/AoC-2019, savonet/ocaml-dtools, dhcmrlchtdj/blueprint)
+   9 extension-sugar = always (AnAverageHuman/dotfiles, osener/bs-atdgen-codec-runtime, ovcharovvladimir/mneliada, dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, ovcharovvladimir/ocaml_quaternion_tangles, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, dhcmrlchtdj/mine)
+   8 version = 0.9 (CraigFe/bidict, danielmercier/lal2adair, fakeNetflix/facebook-repo-infer, mirage/bloomf, paveon/looper, prmis/infer, mirage/wodan, facebook/infer)
+   8 let-open = short (dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, ref-humbold/AlgoLib_OCaml, ref-humbold/Gomoku-Game, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, fakeNetflix/facebook-repo-hhvm, dhcmrlchtdj/mine)
+   8 break-string-literals = wrap (issuu/graphite-async, danielmercier/lal2adair, issuu/ppx_mysql, issuu/thread-pool-async, bikallem/ocaml-scgi, bikallem/re-servers, issuu/ocaml-mmdb, dune-universe/dune-universe)
+   7 space-around-records (SquidDev/omnomnom, ocaml/ocaml-lsp, SquidDev/illuaminate, facebook/pyre-check, ocaml/dune, ocamllabs/duniverse, realworldocaml/book)
+   7 module-item-spacing = preserve (hcarty/ezmysql, hcarty/ezrest, rymdhund/binaric, hcarty/ocaml-tiled, links-lang/links, vrotaru/kaleidoskope, SimonJF/linear-mvu-artifact)
+   7 max-indent = 68 (dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, ref-humbold/AlgoLib_OCaml, ref-humbold/Gomoku-Game, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, dhcmrlchtdj/mine)
+   7 margin = 85 (jfeser/odoc2docset, jfeser/combinat, jfeser/csynth, jfeser/L2, jfeser/ocaml-cmph, Baltoli/synths, jfeser/castor)
+   6 space-around-lists (SquidDev/omnomnom, ocaml/ocaml-lsp, SquidDev/illuaminate, ocaml/dune, ocamllabs/duniverse, realworldocaml/book)
+   6 space-around-arrays (SquidDev/omnomnom, ocaml/ocaml-lsp, SquidDev/illuaminate, ocaml/dune, ocamllabs/duniverse, realworldocaml/book)
+   6 match-indent-nested = auto (graphx-design/ocaml-serializers, badochov/cwiczenia, graphx-design/webcomp-daterange, graphx-design/bs-paragon, graphx-design/promeneur, badochov/WPF)
+   6 let-open = auto (AnAverageHuman/dotfiles, osener/bs-atdgen-codec-runtime, ubsan/cafe, ELLIOTTCABLE/excmd.js, ELLIOTTCABLE/wrange, facelesspanda/fp-ocaml-syntax)
+   5 stritem-extension-indent = 2 (dhcmrlchtdj/schemer, dhcmrlchtdj/ocaml-quickjs, dhcmrlchtdj/tadpole, dhcmrlchtdj/blueprint, dhcmrlchtdj/mine)
+   5 margin = 70 (ArulselvanMadhavan/ocaml-ctfp, TyOverby/jitsy, TyOverby/vdm-ocaml, xvw/rutsch, xvw/quasar)
+   5 infer/src/.ocamlformat (fakeNetflix/facebook-repo-infer, paveon/looper, jura120596/infer_test, avery-laird/term-project, avery-laird/479-term-project)
+   5 align-cases = true (mukul-rathi/ocaml-testing-template, owlbarn/owl_suitesparse, owlbarn/owl, bikallem/re-servers, owlbarn/owl_symbolic)
+   4 parens-ite (savonet/ocaml-ffmpeg, savonet/ocaml-posix, savonet/liquidsoap, savonet/ocaml-dtools)
+   4 nested-match = align (modlfo/vult, badochov/cwiczenia, enaudon/calculus-corral, badochov/WPF)
+   4 margin 100 (fakeNetflix/facebook-repo-facebook-clang-plugins, tonyshui/481-hw4, facebook/facebook-clang-plugins, avery-laird/479-term-project)
+   4 margin = 120 (modlfo/vult, jacketsj/sat, orphos/estoril, orphos/orphos)
+   4 function-indent-nested = auto (graphx-design/ocaml-serializers, graphx-design/webcomp-daterange, graphx-design/bs-paragon, graphx-design/promeneur)
+   3 version 0.5 (fakeNetflix/facebook-repo-facebook-clang-plugins, facebook/facebook-clang-plugins, avery-laird/479-term-project)
+   3 version = 0.8 (avsm/mirage-duniverse, xvw/rutsch, emillon/ocaml-noise)
+   3 space-around-variants (SquidDev/omnomnom, SquidDev/illuaminate, facebook/pyre-check)
+   3 margin = 76 (facebook/infer, avery-laird/term-project, avery-laird/479-term-project)
+   3 indicate-multiline-delimiters = true (danielmercier/lal2adair, bikallem/ocaml-scgi, dune-universe/dune-universe)
+   3 disambiguate-non-breaking-match = true (facebook/flow, fakeNetflix/facebook-repo-hhvm, facebook/hhvm)
+   3 break-string-literals = newlines (AnAverageHuman/dotfiles, fdopen/ppx_cstubs, Hilzu/node-shim)
+   3 break-infix-before-func (Freyr666/ui-server, facebook/pyre-check, ocsigen/js_of_ocaml)
+   3 align-variants-decl = true (modlfo/vult, mukul-rathi/ocaml-testing-template, bikallem/re-servers)
+   3 align-constructors-decl = true (modlfo/vult, mukul-rathi/ocaml-testing-template, bikallem/re-servers)
+   2 version = 0.12-20-gfce0d2e (avery-laird/term-project, avery-laird/479-term-project)
+   2 sparse true (tonyshui/481-hw4, watiko/phoneq-bucklescript)
+   2 quiet = true (ovcharovvladimir/mneliada, ovcharovvladimir/ocaml_quaternion_tangles)
+   2 ocp-indent-compat (facebook/pyre-check, pkel/ghm)
+   2 max-iters = 3 (ovcharovvladimir/mneliada, ovcharovvladimir/ocaml_quaternion_tangles)
+   2 max-iters = 2 (ocaml-ppx/ocamlformat, avsm/platform)
+   2 let-open = long (dhcmrlchtdj/ore, enaudon/calculus-corral)
+   2 indent-after-in = 2 (badochov/cwiczenia, badochov/WPF)
+   2 break-string-literals = newlines-and-wrap (igarnier/ddgeo, igarnier/bih)
+   2 break-sequences (facebook/pyre-check, badochov/WPF)
+   2 align-constructors-decl (owlbarn/owl, owlbarn/owl_symbolic)
+   1 version 0.4 (watiko/phoneq-bucklescript)
+   1 version = bad (ocaml-ppx/ocamlformat)
+   1 version = 0.12-21-gdd929ea (facebook/infer)
+   1 version = 0.10 (CraigFe-alt/autoformat)
+   1 unknown_option = true (ocaml-ppx/ocamlformat)
+   1 this_is_an_error = true (ocaml-ppx/ocamlformat)
+   1 space-around-collection-expressions = true (dune-universe/dune-universe)
+   1 space-around-collection-expressions = false (danielmercier/lal2adair)
+   1 max-indent = none (bikallem/re-servers)
+   1 max-indent = 2 (bikallem/simple-socket-apps)
+   1 margin 90 (watiko/phoneq-bucklescript)
+   1 margin = 82 (anuragsoni/h2)
+   1 margin = 73 (ocsigen/html_of_wiki)
+   1 margin = 72 (ubsan/cafe)
+   1 margin = 160 (Tristan971/AoC-2019)
+   1 m = 120 (thatportugueseguy/ocaml-dotenv)
+   1 leading-nested-match-parens (SkySkimmer/AdventOfCode)
+   1 indicate-nested-or-patterns = true (dhcmrlchtdj/ore)
+   1 indicate-multiline-delimiters = false (dhcmrlchtdj/ore)
+   1 function-indent = 0 (bikallem/simple-socket-apps)
+   1 field-space = unknown_value (ocaml-ppx/ocamlformat)
+   1 doc-comments-padding = 3 (modlfo/vult)
+   1 break-string-literals wrap (watiko/phoneq-bucklescript)
+   1 a = b = c (ocaml-ppx/ocamlformat)
+   1 ../.ocamlformat (utkarshkukreti/reaml)
+   1 ../../../.ocamlformat (facebook/infer)
+   0 escape-strings = hexadecimal ()
+   0 escape-chars = hexadecimal ()

@@ -61,17 +61,19 @@ def count_options(results):
         options_per_projects.setdefault(r["project"], set()).update(opts.items())
     # count_per_options = {}
     # Set all possible pairs, so unused options will show in the result
-    count_per_options = { (opt, val): 0 for opt, values in OPTIONS.items() for val in values }
-    for pair in itertools.chain(*options_per_projects.values()):
-        count_per_options.setdefault(pair, 0)
-        count_per_options[pair] += 1
+    count_per_options = { (opt, val): [] for opt, values in OPTIONS.items() for val in values }
+    for project, pairs in options_per_projects.items():
+        for pair in pairs:
+            count_per_options.setdefault(pair, [])
+            count_per_options[pair].append(project)
     # Add option from profile
-    counts = sorted(count_per_options.items(), key=lambda i: (i[1], i[0]), reverse=True)
+    counts = sorted(count_per_options.items(), key=lambda i: (len(i[1]), i[0]), reverse=True)
     print("Projects: %d, .ocamlformat files: %d" % (len(options_per_projects), len(results)))
-    for pair, count in counts:
-        opt, val = pair
-        # print("%4d %s = %s" % (count, opt, val))
-        print("%4d %s" % (count, opt if val is None else "%s = %s" % pair))
+    for pair, projects in counts:
+        count = len(projects)
+        pair_s = "%s = %s" % pair if pair[1] else pair[0]
+        projects_s = " (%s)" % ", ".join(projects) if count < 10 else ""
+        print("%4d %s%s" % (count, pair_s, projects_s))
 
 try:
     with open("cache", "r") as f:
