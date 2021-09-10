@@ -35,25 +35,44 @@ let parse_opt line =
 
 let parse_ocamlformat_file path = read_file path |> List.filter_map parse_opt
 
-(* Only take the top-level .ocamlformat files because some packages hundreds of
-   them (tezos, tezt). *)
+(** Recursively scan a directory, calls [f acc path] on every files. *)
+let rec scan_dir f acc path =
+  (* Don't recurse into symlinks. *)
+  match Unix.lstat path with
+  | { st_kind = S_REG; _ } -> f acc path
+  | { st_kind = S_DIR; _ } ->
+      let cnames = Sys.readdir path in
+      Array.fold_left
+        (fun acc cname -> scan_dir f acc (Filename.concat path cname))
+        acc cnames
+  | _ -> acc
+
 let ocamlformat_files =
-  let open Filename in
   let root = "." in
   Sys.readdir root
-  |> Array.map (fun name -> (name, concat (concat root name) ".ocamlformat"))
   |> Array.fold_left
-       (fun acc (project, path) ->
-         if Sys.file_exists path then
-           (path, project, parse_ocamlformat_file path) :: acc
-         else acc)
+       (fun acc name ->
+         let path = Filename.concat root name in
+         (* For each project, scan for [.ocamlformat] files. Keep the union of
+            the options present to avoid over-representing some projects. *)
+         let files =
+           scan_dir
+             (fun acc path ->
+               if Filename.basename path = ".ocamlformat" then
+                 parse_ocamlformat_file path :: acc
+               else acc)
+             [] path
+         in
+         if files = [] then acc
+         else (name, List.sort_uniq compare (List.concat files)) :: acc)
        []
 
 let () =
-  Format.printf "%d .ocamlformat files@\n" (List.length ocamlformat_files);
+  Format.printf "%d projects@\n" (List.length ocamlformat_files);
+  (* Count usage for each pair [option, value]. *)
   let tbl = Hashtbl.create 0 in
   List.iter
-    (fun (path, project, options) ->
+    (fun (project, options) ->
       List.iter
         (fun opt ->
           let p', n' =
@@ -62,6 +81,7 @@ let () =
           Hashtbl.replace tbl opt (project :: p', n' + 1))
         options)
     ocamlformat_files;
+  (* Print. *)
   Hashtbl.to_seq tbl |> List.of_seq
   |> List.sort (fun (_, (_, a)) (_, (_, b)) -> b - a)
   |> List.iter (fun ((opt, value), (projects, count)) ->
@@ -75,6 +95,7 @@ let () =
                  (pp_print_list ~pp_sep pp_print_string)
                  projects
          in
+         (* For options with a count < 10, show the list of projects using it. *)
          printf "%4d %s%a%a@\n" count opt (pp_print_option pp_value) value
            pp_projects
            (if count < 10 then projects else []))
