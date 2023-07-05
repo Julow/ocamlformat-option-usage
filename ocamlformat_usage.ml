@@ -48,7 +48,7 @@ let rec scan_dir f acc path =
   | _ -> acc
 
 let ocamlformat_files =
-  let root = "." in
+  let root = "pkgs" in
   Sys.readdir root
   |> Array.fold_left
        (fun acc name ->
