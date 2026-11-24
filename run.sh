@@ -2,11 +2,10 @@
 
 mkdir -p pkgs
 
-while IFS=';' read name v url; do
-  pkg="$name.$v"
-  dst="pkgs/$pkg"
+while read pkgver; do
+  dst="pkgs/$pkgver"
   if ! [[ -e $dst ]]; then
-    opam source --dir="$dst" "$pkg"
+    opam source --dir="$dst" "$pkgver"
   fi
 done < projects
 
